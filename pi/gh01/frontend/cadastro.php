@@ -39,11 +39,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <!-- <h1>Cadastrar</h1> -->
+    <!-- <h1>Cadastrar</h1>
     <?php if (isset($erro)) echo "<p style='color: red;'>$erro</p>"; ?>
     <form method="POST">
         <div>
@@ -65,7 +66,60 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
         <button type="submit">Cadastrar</button>
     </form>
-    <a href="login.php">Já tem conta?</a>
+    <a href="login.php">Já tem conta?</a>  -->
+
+    <main class="">
+        <div class="container">
+            <!-- <div class="welcome-section">
+                <h2 class="welcome-title">Faça seu Login no Sistema de Gestão Hospitalar</h2> --> 
+               
+                <?php if (isset($erro)) echo "<p style='color: red;'>✅ $erro</p>"; ?>
+                <form method="POST">
+                <!-- <section class="login-prompt"> -->
+                        <!-- <div class="login-card"> -->
+                            <!-- <h1>Cadastrar</h1> -->
+                        <div>
+                            <h2 class="">Faça seu Cadastro no Sistema de Gestão Hospitalar</h2>
+                            <h3>Preencha seus dados de Acesso:</h3>
+                                <div>
+                                    <label for="nome">Nome:</label>
+                                    <input type="text" name="nome" id="nome" required>
+                                </div>
+                                <div>
+                                    <label for="email">E-mail:</label>
+                                    <input type="email" name="email" id="email" required>
+                                </div>
+                                <div>
+                                    <label for="senha">Senha:</label>
+                                    <input type="password" name="senha" id="senha" required>
+                                </div>
+                                <div>
+                                    <label for="confirmaSenha">Confirmar Senha:</label>
+                                    <input type="password" name="confirmaSenha" id="confirmaSenha" required>
+                                </div>
+                                <button type="submit">Cadastrar</button>
+                                <br>
+                                <p>Já tem uma conta? <a href="login.php">Faça Login</a> ou volte para <a href="../index.php">Home</a> </p>
+                    </form>
+                
+            <!-- </div> -->
+        </div>
+    </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
 

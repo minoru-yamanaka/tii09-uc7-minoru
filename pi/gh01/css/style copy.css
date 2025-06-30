@@ -1,8 +1,12 @@
-/* CSS Sistema Hospitalar - Versão Corrigida 
-   Certifique-se de que este arquivo esteja em: css/estilo.css
-   E adicione nos arquivos PHP: <link rel="stylesheet" href="css/estilo.css"> */
+/*
+ * CSS para Sistema Hospitalar
+ * Versão Otimizada
+ *
+ * Certifique-se de que este arquivo esteja em: css/estilo.css
+ * Adicione aos seus arquivos PHP: <link rel="stylesheet" href="css/estilo.css">
+ */
 
-/* Reset e configurações globais */
+/* --- Reset e Configurações Globais --- */
 * {
     margin: 0;
     padding: 0;
@@ -15,52 +19,79 @@ body {
     min-height: 100vh;
     color: #333;
     line-height: 1.6;
+
+
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+
+    
 }
 
-/* Header e navegação principal */
+/* --- Títulos --- */
+h1, h2, h3 {
+    color: #4a5568;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+/* --- Parágrafos --- */
+p {
+    margin-bottom: 1rem;
+    color: #4a5568;
+}
+
+/* --- Links Gerais --- */
+a {
+    color: #667eea;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #5a67d8;
+    text-decoration: underline;
+}
+
+/* --- Header e Navegação Principal --- */
 header {
     background: white;
     padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     margin-bottom: 2rem;
+    text-align: center; /* Centraliza o H1 do header */
 }
 
 header h1 {
-    color: #4a5568;
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    text-align: center;
 }
 
-/* Navegação */
-nav {
-    margin-top: 1rem;
-}
-
+/* --- Navegação Principal (Menus) --- */
 nav ul {
-    list-style: none;
+    list-style: none; /* Remove marcadores de lista */
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
     justify-content: center;
+    margin-top: 1rem;
+    padding-left: 0; /* Garante que o padding padrão de UL seja removido */
 }
-
-nav ul li {
-    margin: 0;
-}
-
-ul {
-  list-style-type: none;
-  padding-left: 0;
-}
-
 
 nav a {
     display: inline-block;
@@ -80,7 +111,8 @@ nav a:hover {
     background: linear-gradient(135deg, #5a67d8, #6b46c1);
 }
 
-/* Navegação superior (login/logout) */
+/* --- Navegação Superior (Login/Logout) --- */
+/* Aplica-se à navegação que é filha direta do body */
 body > nav {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
@@ -99,9 +131,8 @@ body > nav a {
     backdrop-filter: blur(5px);
 }
 
-/* Formulários */
-form {  
-    
+/* --- Formulários --- */
+form {
     background: white;
     padding: 2rem;
     border-radius: 15px;
@@ -110,21 +141,19 @@ form {
 }
 
 .form-grid {
-    
     display: grid;
-    repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1.5rem;
     margin-bottom: 2rem;
 }
 
-.form-group, div {
+.form-group { /* Removido 'div' para não afetar todas as divs indiscriminadamente */
     display: flex;
     flex-direction: column;
     margin-bottom: 1rem;
 }
 
 label {
-    
     font-weight: 600;
     color: #4a5568;
     margin-bottom: 0.5rem;
@@ -138,7 +167,6 @@ input[type="time"],
 input[type="number"],
 select,
 textarea {
-    
     padding: 0.75rem;
     border: 2px solid #e2e8f0;
     border-radius: 8px;
@@ -155,9 +183,12 @@ textarea:focus {
     box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
-/* Botões */
+/* --- Botões --- */
 button,
 .btn {
+    display: inline-flex; /* Usar inline-flex para centralizar e permitir gap, mas manter como bloco */
+    align-items: center;
+    justify-content: center;
     padding: 0.75rem 1.5rem;
     border: none;
     border-radius: 8px;
@@ -166,18 +197,9 @@ button,
     cursor: pointer;
     transition: all 0.3s ease;
     text-decoration: none;
-    /* display: inline-block; */
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
-    
-    display: flex;
-    text-align: center;
     background: linear-gradient(135deg, #667eea, #764ba2);
     color: white;
-    margin: 0.5rem 0;
+    margin: 0.5rem 0; /* Espaçamento padrão para botões */
 }
 
 button:hover,
@@ -187,16 +209,18 @@ button:hover,
     background: linear-gradient(135deg, #5a67d8, #6b46c1);
 }
 
-button[type="submit"] {
+button[type="submit"],
+.btn-primary { /* Adicionei uma classe genérica para submit */
     background: linear-gradient(135deg, #48bb78, #38a169);
 }
 
-button[type="submit"]:hover {
+button[type="submit"]:hover,
+.btn-primary:hover {
     background: linear-gradient(135deg, #38a169, #2f855a);
     box-shadow: 0 5px 15px rgba(72, 187, 120, 0.4);
 }
 
-/* Botões de ação específicos */
+/* --- Botões de Ação Específicos --- */
 .btn-edit {
     background: linear-gradient(135deg, #ed8936, #dd6b20);
     padding: 0.5rem 1rem;
@@ -219,13 +243,13 @@ button[type="submit"]:hover {
     box-shadow: 0 3px 10px rgba(245, 101, 101, 0.4);
 }
 
-/* Tabelas */
+/* --- Tabelas --- */
 .table-container {
     background: white;
     border-radius: 15px;
     padding: 2rem;
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    overflow-x: auto;
+    overflow-x: auto; /* Permite rolagem horizontal em telas pequenas */
     margin-bottom: 2rem;
 }
 
@@ -264,7 +288,7 @@ tr:last-child td {
     flex-wrap: wrap;
 }
 
-/* Alertas e mensagens */
+/* --- Alertas e Mensagens --- */
 .alert {
     padding: 1rem;
     border-radius: 8px;
@@ -284,9 +308,9 @@ tr:last-child td {
     border: 1px solid #fc8181;
 }
 
-/* Mensagens de erro inline */
+/* Mensagens de erro inline (ex: validação de formulário) */
 p[style*="color:red"],
-p[style*="color: red"] {
+p[style*="color: red"] { /* Garante a compatibilidade */
     background: #fed7d7;
     color: #742a2a;
     padding: 0.75rem;
@@ -295,7 +319,7 @@ p[style*="color: red"] {
     margin: 1rem 0;
 }
 
-/* Cards de conteúdo */
+/* --- Cards de Conteúdo --- */
 .card {
     background: white;
     padding: 2rem;
@@ -309,7 +333,7 @@ p[style*="color: red"] {
     margin-bottom: 1rem;
 }
 
-/* Página inicial - seção de boas-vindas */
+/* --- Página Inicial - Seção de Boas-Vindas / Cards Gerais --- */
 .section {
     background: white;
     padding: 3rem 2rem;
@@ -317,19 +341,20 @@ p[style*="color: red"] {
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     text-align: center;
     margin-bottom: 2rem;
-
+    /* Remover grid template aqui se for apenas para o welcome-section,
+       caso contrário, .section pode ser um container flex/grid para outros cards.
+       Mantido como grid para o welcome-section como no original. */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    max-width: calc(5 * 200px + 3 * 1.5rem); /* 3 colunas de 200px + 2 gaps */
-    gap: 1.5rem;
-    margin-bottom: 2rem;
- 
+    gap: 1rem;
+    justify-content: center; /* Centraliza itens no grid */
+    align-items: center;
 }
 
-.section h1 {
-    color: #4a5568;
+.welcome-section h1 { /* Específico para o título de boas-vindas */
     font-size: 2.5rem;
     margin-bottom: 1rem;
+    color: #4a5568;
 }
 
 .welcome-section p {
@@ -337,138 +362,25 @@ p[style*="color: red"] {
     font-size: 1.1rem;
 }
 
-/* Loading states */
+/* --- Estados de Carregamento --- */
 .loading {
     text-align: center;
     padding: 2rem;
     color: #718096;
 }
 
-/* Links gerais */
-a {
-    color: #667eea;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-a:hover {
-    color: #5a67d8;
-    text-decoration: underline;
-}
-
-/* Espaçamentos específicos */
-p {
-    margin-bottom: 1rem;
-    color: #4a5568;
-}
-
-/* Hidden inputs */
+/* --- Elementos Escondidos --- */
 input[type="hidden"] {
     display: none;
 }
 
-/* Select dropdowns específicos */
+/* --- Select Dropdowns Específicos (para formulários de cadastro) --- */
 select[name="paciente_id"],
 select[name="medico_id"] {
     margin-bottom: 1rem;
 }
 
-/* Títulos de seções */
-h1, h2, h3 {
-    color: #4a5568;
-    margin-bottom: 1rem;
-}
-
-h1 {
-    font-size: 2.5rem;
-}
-
-h2 {
-    font-size: 2rem;
-}
-
-h3 {
-    font-size: 1.5rem;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    .container {
-        padding: 10px;
-    }
-    
-    header {
-        padding: 1rem;
-    }
-    
-    header h1 {
-        font-size: 2rem;
-    }
-    
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    body > nav {
-        flex-direction: column;
-        padding: 1rem;
-    }
-    
-    form {
-        padding: 1rem;
-    }
-    
-    .form-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .table-container {
-        padding: 1rem;
-    }
-    
-    th, td {
-        padding: 0.5rem;
-        font-size: 0.875rem;
-    }
-    
-    .action-buttons {
-        flex-direction: column;
-    }
-    
-    .btn-edit,
-    .btn-delete {
-        font-size: 0.75rem;
-        padding: 0.4rem 0.8rem;
-    }
-}
-
-@media (max-width: 480px) {
-    header h1 {
-        font-size: 1.5rem;
-    }
-    
-    nav a {
-        padding: 0.5rem 1rem;
-        font-size: 0.875rem;
-    }
-    
-    button,
-    .btn {
-        padding: 0.6rem 1.2rem;
-        font-size: 0.9rem;
-    }
-    
-    table {
-        font-size: 0.8rem;
-    }
-    
-    th, td {
-        padding: 0.4rem;
-    }
-}
-
-/* Animações */
+/* --- Animações --- */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -486,16 +398,18 @@ form,
     animation: fadeIn 0.3s ease;
 }
 
-/* Estados de foco melhorados */
+/* --- Melhorias de Acessibilidade --- */
+/* Foco visual claro para elementos interativos */
 input:focus,
 select:focus,
 textarea:focus,
-button:focus {
+button:focus,
+a:focus { /* Adicionado 'a:focus' para links */
     outline: 2px solid #667eea;
     outline-offset: 2px;
 }
 
-/* Melhorias de acessibilidade */
+/* Conteúdo somente para leitores de tela */
 .sr-only {
     position: absolute;
     width: 1px;
@@ -508,11 +422,83 @@ button:focus {
     border: 0;
 }
 
-.section {
-    background: white;
-    padding: 3rem 2rem;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    text-align: center;
-    margin-bottom: 2rem;
+/* --- Responsividade --- */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    header {
+        padding: 1rem;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    body > nav {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    form {
+        padding: 1rem;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr; /* Uma coluna em telas menores */
+    }
+
+    .table-container {
+        padding: 1rem;
+    }
+
+    th, td {
+        padding: 0.5rem;
+        font-size: 0.875rem;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .btn-edit,
+    .btn-delete {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    nav a {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+    }
+
+    button,
+    .btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    table {
+        font-size: 0.8rem;
+    }
+
+    th, td {
+        padding: 0.4rem;
+    }
+}
+
+main {
+    
 }

@@ -36,7 +36,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <!-- <h1>Login</h1> -->
+    <!-- <h1>Login</h1>
     <?php if(isset($erro)) echo "<p style='color:red'>$erro</p>";?>
     <form action="login.php"  method="post">
         <div>
@@ -50,6 +50,40 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
         </div>
         <button type="submit">Logar</button>
     </form>
-    <a href="cadastro.php">Cadastro</a>
+    <a href="cadastro.php">Cadastro</a> -->
+
+    <main class="">
+        <div class="container">
+            <!-- <div class="welcome-section">
+                <h2 class="welcome-title">Faça seu Login no Sistema de Gestão Hospitalar</h2> -->
+                
+                <?php if(isset($erro)) echo "<p style='color:red'>$erro</p>";?>
+                <form action="login.php"  method="post">
+                    <!-- <section class="login-prompt"> -->
+                            <!-- <div class="login-card"> -->
+                                <!-- <h1>Login</h1> -->
+                                <div>
+                                    <h2 class="">Faça seu Login no Sistema de Gestão Hospitalar</h2>
+                                    <h3>Preencha seus dados de Acesso:</h3>
+                                        <div>
+                                            <label for="email">Email :</label>
+                                            <input type="email" name="email" id="email">
+                                        </div>
+                                        <div>
+                                            <label for="senha">Senha :</label>
+                                            <input type="password" name="senha" id="senha">
+                                        </div>
+                                        <button type="submit">Logar</button>
+                                        <p>Não tem uma conta? <a href="cadastro.php">Cadastre-se</a> ou volte para <a href="../index.php">Home</a> </p>
+                                        <p></p>
+                                        <!-- <a href="cadastro.php">Cadastro</a> -->
+                                <!-- </div> -->
+                            <!-- </div> -->
+                    <!-- </section> -->
+                </form>
+            <!-- </div> -->
+        </div>
+    </main>
+
 </body>
 </html>
