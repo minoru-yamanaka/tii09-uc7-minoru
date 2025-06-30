@@ -41,23 +41,7 @@ exit;
 <body>
     <header>
   <h1><?=$pacientes?"Editar  Pacientes":"Cadastro de Pacientes"?></h1>
-  <nav>
-    <ul>
-        <li><a href="../index.php">Home</a></li>
-        <li><a href="form_consultas.php">Cadastro de Paciente</a></li>
-        <li><a href="form_convenio.php">Cadastro de Convênios</a></li>
-        <li><a href="form_medicos.php">Cadastro de Médicos</a></li>
-        <li><a href="form_consultas.php">Cadastro de Consultas</a></a></li>
-        
-        <li><a href="lista_paciente.php">Lista de Paciente</a></li>
-        <li><a href="lista_convenio.php">Lista de Convênios</a></li>
-        <li><a href="lista_medicos.php">Lista de Médicos</a></li>
-        <li><a href="lista_consultas.php">Lista de Consultas</a></li>
-
-        <li><a href="form_endereco.php">Cadastro Endereços</a></li>
-        <li><a href="lista_endereco.php">Lista de Endereços</a></li>
-    </ul>
-  </nav>
+ 
     </header>
     <form action="form_paciente.php" method="post">
         <?php if($pacientes) :?>
@@ -97,7 +81,26 @@ exit;
         <label for="sobrenome">Data de Cadastro:</label>
         <input type="date" name="data_cadastro" id="data_cadastro" required value="<?=$pacientes?$pacientes->getData_cadastro():''?>">
     </div>
-    <button type="submit">Cadastrar</button>
+        <button type="submit">Cadastrar</button>
     </form>
+
+    <nav>
+        <ul>
+            <li><a href="../index.php">Home</a></li>
+            <li><a href="form_consultas.php">Cadastro de Paciente</a></li>
+            <li><a href="form_convenio.php">Cadastro de Convênios</a></li>
+            <li><a href="form_medicos.php">Cadastro de Médicos</a></li>
+            <li><a href="form_consultas.php">Cadastro de Consultas</a></a></li>
+            
+            <li><a href="lista_paciente.php">Lista de Paciente</a></li>
+            <li><a href="lista_convenio.php">Lista de Convênios</a></li>
+            <li><a href="lista_medicos.php">Lista de Médicos</a></li>
+            <li><a href="lista_consultas.php">Lista de Consultas</a></li>
+
+            <li><a href="form_endereco.php">Cadastro Endereços</a></li>
+            <li><a href="lista_endereco.php">Lista de Endereços</a></li>
+        </ul>
+    </nav>
+
 </body>
 </html>

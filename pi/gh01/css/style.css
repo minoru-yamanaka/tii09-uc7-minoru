@@ -100,8 +100,7 @@ body > nav a {
 }
 
 /* Formulários */
-form {  
-    
+form {    
     background: white;
     padding: 2rem;
     border-radius: 15px;
@@ -320,10 +319,24 @@ p[style*="color: red"] {
 
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    max-width: calc(5 * 200px + 3 * 1.5rem); /* 3 colunas de 200px + 2 gaps */
-    gap: 1.5rem;
+    max-width: calc(5 * 200px + 3 * 1rem); /* 3 colunas de 200px + 2 gaps */
+    gap: 1rem;
     margin-bottom: 2rem;
- 
+}
+
+.section-lista{
+    background: white;
+    padding: 3rem 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    text-align: center;
+    margin-bottom: 2rem;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    max-width: calc(5 * 200px + 3 * 1rem); /* 3 colunas de 200px + 2 gaps */
+    gap: 1rem;
+    margin-bottom: 2rem;
 }
 
 .section h1 {
