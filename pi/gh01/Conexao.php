@@ -2,7 +2,7 @@
 class Conexao{
     public static function getInstance(){
         $db_dbhost = "localhost";
-        $db_name = "gestaodb";
+        $db_name = "gestao_hospitalar";
         $db_user = "root";
         $db_pass = "";
         try{
