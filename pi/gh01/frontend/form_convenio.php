@@ -43,61 +43,78 @@ exit;
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <header>
-  <h1><?=$convenio?"Editar  Convenio":"Cadastro de Convenios"?></h1>
-  <nav>
-   <ul>
-        <li><a href="../index.php">Home</a></li>
-        <li><a href="form_consultas.php">Cadastro de Paciente</a></li>
-        <li><a href="form_convenio.php">Cadastro de Convênios</a></li>
-        <li><a href="form_medicos.php">Cadastro de Médicos</a></li>
-        <li><a href="form_consultas.php">Cadastro de Consultas</a></a></li>
         
-        <li><a href="lista_paciente.php">Lista de Paciente</a></li>
-        <li><a href="lista_convenio.php">Lista de Convênios</a></li>
-        <li><a href="lista_medicos.php">Lista de Médicos</a></li>
-        <li><a href="lista_consultas.php">Lista de Consultas</a></li>
+    <!-- Conteúdo Principal -->
+    <main class="main-content">
+        <div class="container">
+                <div class="login-card">
+                   <form action="form_convenio.php" method="post">
 
-        <li><a href="form_endereco.php">Cadastro Endereços</a></li>
-        <li><a href="lista_endereco.php">Lista de Endereços</a></li>
-    </ul>
-  </nav>
-    </header>
-    <form action="form_convenio.php" method="post">
-        <?php if($convenio) :?>
-         <input type="hidden" name="id" value="<?=$convenio->getId()?>">
-          <?php endif; ?>
-    <div>
-        <label for="empresa">Empresa :</label>
-        <input type="text" name="empresa" id="empresa" required value="<?=$convenio?$convenio->getEmpresa():''?>">
-    </div>
+                        <h1><?=$convenio?"Editar Convênio":"Cadastro de Convênios"?></h1>
+                        
+                        <?php if($convenio) :?>
+                            <input type="hidden" name="id" value="<?=$convenio->getId()?>">
+                        <?php endif; ?>
 
-    <div>
-        <label for="cnpj">Cnpj:</label>
-        <input type="text" name="cnpj" id="cnpj" required value="<?=$convenio?$convenio->getCnpj():''?>">
-    </div>
+                        <div>
+                            <label for="empresa">Empresa :</label>
+                            <input type="text" name="empresa" id="empresa" required value="<?=$convenio?$convenio->getEmpresa():''?>">
+                        </div>
 
-    <div>
-        <label for="telefone">Telefone :</label>
-        <input type="text" name="telefone" id="telefone" required value="<?=$convenio?$convenio->getTelefone():''?>">
-    </div>
+                        <div>
+                            <label for="cnpj">Cnpj:</label>
+                            <input type="text" name="cnpj" id="cnpj" required value="<?=$convenio?$convenio->getCnpj():''?>">
+                        </div>
 
-    <div>
-        <label for="email">Email :</label>
-        <input type="email" name="email" id="email" required value="<?=$convenio?$convenio->getEmail():''?>">
-    </div> 
+                        <div>
+                            <label for="telefone">Telefone :</label>
+                            <input type="text" name="telefone" id="telefone" required value="<?=$convenio?$convenio->getTelefone():''?>">
+                        </div>
 
-    <p>Lista de Pacientes</p>
-    <div>
-        <select name="paciente_id" id="paciente_id">
-            <option></option>
-            <?php foreach($pacientes as $paciente):?>
-             <option value="<?=$paciente->getId()?>"><?=$paciente->getNome()?></option>
-               <?php endforeach;?>
-        </select>
-    </div>
-    <button type="submit">Cadastrar</button>
-    </form>
+                        <div>
+                            <label for="email">Email :</label>
+                            <input type="email" name="email" id="email" required value="<?=$convenio?$convenio->getEmail():''?>">
+                        </div> 
+
+                        <p>Lista de Pacientes</p>
+
+                        <div>
+                            <select name="paciente_id" id="paciente_id">
+                                <option></option>
+                                <?php foreach($pacientes as $paciente):?>
+                                <option value="<?=$paciente->getId()?>"><?=$paciente->getNome()?></option>
+                                <?php endforeach;?>
+                            </select>
+                        </div>
+
+                        <button type="submit">Cadastrar</button>
+                        <br>
+                        <p>Já cadastrou o convênio? <a href="lista_paciente.php">Acesse a lista de convênios </a> ou volte para <a href="../index.php">Home</a> </p>
+                    </form>   
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <nav>
+        <ul>
+            <li><a href="../index.php">Home</a></li>
+            <li><a href="form_consultas.php">Cadastro de Paciente</a></li>
+            <li><a href="form_convenio.php">Cadastro de Convênios</a></li>
+            <li><a href="form_medicos.php">Cadastro de Médicos</a></li>
+            <li><a href="form_consultas.php">Cadastro de Consultas</a></a></li>
+            
+            <li><a href="lista_paciente.php">Lista de Paciente</a></li>
+            <li><a href="lista_convenio.php">Lista de Convênios</a></li>
+            <li><a href="lista_medicos.php">Lista de Médicos</a></li>
+            <li><a href="lista_consultas.php">Lista de Consultas</a></li>
+
+            <li><a href="form_endereco.php">Cadastro Endereços</a></li>
+            <li><a href="lista_endereco.php">Lista de Endereços</a></li>
+        </ul>
+    </nav>
 
 </body>
 </html>

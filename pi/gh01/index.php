@@ -60,7 +60,7 @@ $isLogged = isset($_SESSION['token']);
                     </section>   
                     
 
-                <!-- Área para Cadastros -->
+                <!-- Cadastros -->
                 <section class="login-prompt">
                     <div class="login-card">
                         <h3>Cadastros</h3>
@@ -75,7 +75,7 @@ $isLogged = isset($_SESSION['token']);
                     </div>
                 </section>   
 
-                    <!-- Área para Cadastros -->
+                <!-- Listas -->
                 <section class="login-prompt">
                     <div class="login-card">
                         <h3>Listas</h3>
@@ -91,7 +91,8 @@ $isLogged = isset($_SESSION['token']);
                 </section>   
 
                 <?php else: ?>
-                    <!-- Área para usuários não logados -->
+                
+                <!-- Área para usuários não logados -->
                 <section class="login-prompt">
                         <div class="login-card">
                             <h3>Acesso Restrito</h3>
