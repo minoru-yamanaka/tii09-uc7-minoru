@@ -13,7 +13,7 @@ class Medicos
         $this->especialidade = $especialidade;
         $this->crm = $crm;
     }
- //Get
+//Get
     public function getId(){
         return $this->id;
     }
@@ -27,7 +27,7 @@ class Medicos
         return $this->crm;
     }
 
-     //Set
+//Set
     public function setId(int $id){
      $this->id= $id;
     }

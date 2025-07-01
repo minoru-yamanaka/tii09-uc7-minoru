@@ -15,7 +15,7 @@ class MedicoDAO{
     $medicos=[];
     $stmt= $this->bd->query($sql);
     while($row =$stmt->fetch(PDO::FETCH_ASSOC)){
-$medicos[] = new Medicos($row['id'],$row['nome'],$row['especialidade'],$row['crm']);
+   $medicos[] = new Medicos($row['id'],$row['nome'],$row['especialidade'],$row['crm']);
     }
    return $medicos;
  }
@@ -46,11 +46,14 @@ $medicos[] = new Medicos($row['id'],$row['nome'],$row['especialidade'],$row['crm
                        ':crm'=>$medico->getCrm()
   ]); 
  }
+
   public function excluir($id){
         $sql="DELETE FROM medico WHERE id=:id";
         $stmt=$this->bd->prepare($sql);
         $stmt->execute([':id'=>$id]);
  }
+
+ 
 
 }
 ?>
