@@ -43,9 +43,48 @@ if ($_POST) {
     <main class="main-content">
         <div class="container">
             <div class="login-card">
-                <form action="form_endereco.php" method="post">
 
-                    <h1><?= $endereco ? "Editar Endereços" : "Cadastro de Endereços" ?></h1>
+    <div class="container">
+        <div class="header">
+            <h1>Sistema de Gestão Hospitalar</h1>
+            </div>
+
+        <div class="tabs">
+            <button class="tab-button" onclick="window.location.href='../index.php';">
+                👥 Home
+            </button>
+            <button class="tab-button" onclick="window.location.href='lista_paciente.php';">
+                📦 Paciente
+            </button>
+            <button class="tab-button" onclick="window.location.href='lista_convenio.php';">
+                📦 Convênios
+            </button>
+            <button class="tab-button" onclick="window.location.href='lista_medicos.php';">
+                📦 Médicos
+            </button>
+            <button class="tab-button" onclick="window.location.href='lista_consultas.php';">
+                📦 Consultas
+            </button>
+            <button class="tab-button" onclick="window.location.href='lista_endereco.php';">
+                📦 Endereços
+            </button>
+        </div>
+
+        <div id="clientes" class="tab-content active">
+            <h2><?= $endereco ? "Editar Endereços" : "Cadastro de Endereços" ?></h2>
+            <br>
+            <div class="actions">
+                <button class="btn btn-primary" onclick="window.location.href='lista_paciente.php';">
+                    📃 Listar Pacientes
+                </button>
+                <button class="btn btn-secondary" onclick="location.reload(); return false;">
+                    🔄 Limpar Campos
+                </button>
+            </div>
+
+            <div id="clientesAlert"></div>
+
+            <form action="form_endereco.php" method="post">
 
                     <?php if ($endereco) : ?>
                         <input type="hidden" name="id" value="<?= $endereco->getId() ?>">
@@ -68,8 +107,10 @@ if ($_POST) {
                         <label for="estado">Estado:</label>
                         <input type="text" name="estado" id="estado" required value="<?= $endereco ? $endereco->getEstado() : '' ?>">
                     </div>
-                    <p>Lista de Pacientes</p>
+
                     <div>
+                        <label>Lista de Pacientes:</label>
+                        <!-- <p>Lista de Pacientes</p> -->
                         <select name="paciente_id" id="paciente_id">
                             <option></option>
                             <?php foreach ($pacientes as $paciente) : ?>
@@ -77,13 +118,13 @@ if ($_POST) {
                             <?php endforeach; ?>
                         </select>
                     </div>
+
                     <button type="submit">Cadastrar</button>
                     <br>
-                    <p>Já cadastrou o endereço? <a href="lista_paciente.php">Acesse a lista de endereços</a> ou volte para <a href="../index.php">Home</a> </p>
-                </form>
-            </div>
+                    <p>Já cadastrou o endereço? <a href="lista_endereco.php">Acesse a lista de endereços</a> ou volte para <a href="../index.php">Home</a> </p>
+                </form> 
         </div>
-    </main>
+    </div>
 
 </body>
 </html>

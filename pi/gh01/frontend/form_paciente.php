@@ -38,93 +38,101 @@ if ($_POST) {
     <title>Cadastro de Pacientes</title>
     <link rel="stylesheet" href="../css/style.css">
     <style>
-    .sexo-container {
-        text-align: left;
-        margin-bottom: 1em;
-    }
+        .sexo-container {
+            text-align: left;
+            margin-bottom: 1em;
+        }
 
-    .radio-group {
-        display: inline-block;
-    }
+        .radio-group {
+            display: inline-block;
+        }
     </style>
 </head>
 <body>
-    <!-- Conteúdo Principal -->
-    <main class="main-content">
-        <div class="container">
-                <div class="login-card">
-                    <form action="form_paciente.php" method="post">
 
-                        <h1><?= $pacientes ? "Editar Paciente" : "Cadastro de Paciente" ?></h1>
+    <div class="container">
+        <div class="header">
+            <h1>Sistema de Gestão Hospitalar</h1>
+            </div>
 
-                        <?php if ($pacientes): ?>
-                            <input type="hidden" name="id" value="<?= $pacientes->getId() ?>">
-                        <?php endif; ?>
+        <div class="tabs">
+            <button class="tab-button" onclick="window.location.href='../index.php';">
+                👥 Home
+            </button>
+            <button class="tab-button" onclick="window.location.href='lista_paciente.php';">
+                📦 Paciente
+            </button>
+            <button class="tab-button" onclick="window.location.href='lista_convenio.php';">
+                📦 Convênios
+            </button>
+            <button class="tab-button" onclick="window.location.href='lista_medicos.php';">
+                📦 Médicos
+            </button>
+            <button class="tab-button" onclick="window.location.href='lista_consultas.php';">
+                📦 Consultas
+            </button>
+            <button class="tab-button" onclick="window.location.href='lista_endereco.php';">
+                📦 Endereços
+            </button>
+        </div>
 
-                        <div>
-                            <label for="nome">Nome:</label>
-                            <input type="text" name="nome" id="nome" required value="<?= $pacientes ? $pacientes->getNome() : '' ?>">
-                        </div>
+        <div id="clientes" class="tab-content active">
+            <h2><?= $pacientes ? "Editar Paciente" : "Cadastro de Paciente" ?></h2>
+            <br>
+            <div class="actions">
+                <button class="btn btn-primary" onclick="window.location.href='lista_paciente.php';">
+                    📃 Listar Pacientes
+                </button>
+                <button class="btn btn-secondary" onclick="location.reload(); return false;">
+                    🔄 Limpar Campos
+                </button>
+            </div>
 
-                        <div>
-                            <label for="sobrenome">Sobrenome:</label>
-                            <input type="text" name="sobrenome" id="sobrenome" required value="<?= $pacientes ? $pacientes->getSobrenome() : '' ?>">
-                        </div>
+            <div id="clientesAlert"></div>
 
-                        <div>
-                            <label for="data_nascimento">Data de Nascimento:</label>
-                            <input type="date" name="data_nascimento" id="data_nascimento" required value="<?= $pacientes ? $pacientes->getData_nascimento() : '' ?>">
-                        </div>
+            <form action="form_paciente.php" method="post">
 
-                        <div>
-                            <label for="data_cadastro">Data de Cadastro:</label>
-                            <input type="date" name="data_cadastro" id="data_cadastro" required value="<?= $pacientes ? $pacientes->getData_cadastro() : '' ?>">
-                        </div>
+                <?php if ($pacientes): ?>
+                    <input type="hidden" name="id" value="<?= $pacientes->getId() ?>">
+                <?php endif; ?>
 
-                        <div class="sexo-container">
-                            <label>Sexo:</label><br>
-                            
-                            <div class="radio-group">
-                                <input type="radio" name="sexo" id="sexo_m" value="masculino" <?= $pacientes && $pacientes->getSexo() === 'masculino' ? 'checked' : '' ?>>
-                                <label for="sexo_m">Masculino</label>
-                                <br>
-                                <input type="radio" name="sexo" id="sexo_f" value="feminino" <?= $pacientes && $pacientes->getSexo() === 'feminino' ? 'checked' : '' ?>>
-                                <label for="sexo_f">Feminino</label>
-                            </div>
-                        </div>
+                <div>
+                    <label for="nome">Nome:</label>
+                    <input type="text" name="nome" id="nome" required value="<?= $pacientes ? $pacientes->getNome() : '' ?>">
+                </div>
 
-                        <button type="submit"><?= $pacientes ? 'Atualizar' : 'Cadastrar' ?></button>
+                <div>
+                    <label for="sobrenome">Sobrenome:</label>
+                    <input type="text" name="sobrenome" id="sobrenome" required value="<?= $pacientes ? $pacientes->getSobrenome() : '' ?>">
+                </div>
+
+                <div>
+                    <label for="data_nascimento">Data de Nascimento:</label>
+                    <input type="date" name="data_nascimento" id="data_nascimento" required value="<?= $pacientes ? $pacientes->getData_nascimento() : '' ?>">
+                </div>
+
+                <div>
+                    <label for="data_cadastro">Data de Cadastro:</label>
+                    <input type="date" name="data_cadastro" id="data_cadastro" required value="<?= $pacientes ? $pacientes->getData_cadastro() : '' ?>">
+                </div>
+
+                <div class="sexo-container">
+                    <label>Sexo:</label><br>
+                    
+                    <div class="radio-group">
+                        <input type="radio" name="sexo" id="sexo_m" value="masculino" <?= $pacientes && $pacientes->getSexo() === 'masculino' ? 'checked' : '' ?>>
+                        Masculino
                         <br>
-                        <p>Já cadastrou o paciente? <a href="lista_paciente.php">Acesse a lista de pacientes </a> ou volte para <a href="../index.php">Home</a> </p>
-                    </form>   
+                        <input type="radio" name="sexo" id="sexo_f" value="feminino" <?= $pacientes && $pacientes->getSexo() === 'feminino' ? 'checked' : '' ?>>
+                        Feminino
+                    </div>
                 </div>
-            </div>
+
+                <button type="submit"><?= $pacientes ? 'Atualizar' : 'Cadastrar' ?></button>
+                <br>
+                <p>Já cadastrou o paciente? <a href="lista_paciente.php">Acesse a lista de pacientes </a> ou volte para <a href="../index.php">Home</a> </p>
+            </form> 
         </div>
-
-
-            <div class="container">
-                <div class="container">
-                     <nav>
-                        <ul>
-                            <li><a href="../index.php">Home</a></li>
-                            <li><a href="form_paciente.php">Cadastro de Paciente</a></li>
-                            <li><a href="form_convenio.php">Cadastro de Convênios</a></li>
-                            <li><a href="form_medicos.php">Cadastro de Médicos</a></li>
-                            <li><a href="form_consultas.php">Cadastro de Consultas</a></li>
-                            <li><a href="lista_paciente.php">Lista de Pacientes</a></li>
-                            <li><a href="lista_convenio.php">Lista de Convênios</a></li>
-                            <li><a href="lista_medicos.php">Lista de Médicos</a></li>
-                            <li><a href="lista_consultas.php">Lista de Consultas</a></li>
-                            <li><a href="form_endereco.php">Cadastro de Endereços</a></li>
-                            <li><a href="lista_endereco.php">Lista de Endereços</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-
-            
-           
-        </div>
-    </main>
+    </div>
 </body>
 </html>
